@@ -4,10 +4,12 @@ import { withIronSessionApiRoute } from 'iron-session/next';
 async function loginRoute(req, res) {
   const { access_token } = req.query;
 
+  const JACKSON_URL =
+    process.env.NEXT_PUBLIC_JACKSON_SERVICE || 'http://localhost:5000';
+
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_JACKSON_SERVICE}/oauth/userinfo?access_token=` +
-        access_token
+      `${JACKSON_URL}/oauth/userinfo?access_token=` + access_token
     );
     const data = await response.json();
 

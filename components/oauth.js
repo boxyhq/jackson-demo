@@ -10,14 +10,17 @@ const json = (response) => {
 export default function OAuth() {
   const [loggedIn, setLoggedIn] = useState(null);
 
+  const JACKSON_URL =
+    process.env.NEXT_PUBLIC_JACKSON_SERVICE || 'http://localhost:5000';
+
   if (!oauth) {
     oauth = new OAuth2AuthCodePKCE({
       extraAuthorizationParams: {
         provider: 'saml',
       },
       scopes: [],
-      authorizationUrl: `${process.env.NEXT_PUBLIC_JACKSON_SERVICE}/oauth/authorize`,
-      tokenUrl: `${process.env.NEXT_PUBLIC_JACKSON_SERVICE}/oauth/token`,
+      authorizationUrl: `${JACKSON_URL}/oauth/authorize`,
+      tokenUrl: `${JACKSON_URL}/oauth/token`,
       redirectUrl: 'http://localhost:3000',
       clientId: 'tenant=boxyhq.com&product=demo',
       clientSecret: 'dummy',
