@@ -1,5 +1,6 @@
 import { OAuth2AuthCodePKCE } from '@bity/oauth2-auth-code-pkce';
 import { useState } from 'react';
+import { JACKSON_URL } from 'lib/constants';
 
 let oauth;
 
@@ -9,9 +10,6 @@ const json = (response) => {
 
 export default function OAuth() {
   const [loggedIn, setLoggedIn] = useState(null);
-
-  const JACKSON_URL =
-    process.env.NEXT_PUBLIC_JACKSON_SERVICE || 'http://localhost:5000';
 
   if (!oauth) {
     oauth = new OAuth2AuthCodePKCE({

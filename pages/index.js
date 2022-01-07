@@ -1,9 +1,8 @@
 import dynamic from 'next/dynamic';
 
-const OAuthComponentWithNoSSR = dynamic(
-  () => import('../components/oauth.js'),
-  { ssr: false }
-);
+const OAuthComponentWithNoSSR = dynamic(() => import('components/oauth.js'), {
+  ssr: false,
+});
 
 export default function IndexPage() {
   return (

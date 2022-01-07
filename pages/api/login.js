@@ -1,11 +1,9 @@
 import fetch from 'node-fetch';
 import { withIronSessionApiRoute } from 'iron-session/next';
+import { JACKSON_URL } from 'lib/constants';
 
 async function loginRoute(req, res) {
   const { access_token } = req.query;
-
-  const JACKSON_URL =
-    process.env.NEXT_PUBLIC_JACKSON_SERVICE || 'http://localhost:5000';
 
   try {
     const response = await fetch(
