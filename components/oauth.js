@@ -19,7 +19,7 @@ export default function OAuth() {
       scopes: [],
       authorizationUrl: `${JACKSON_URL}/api/oauth/authorize`,
       tokenUrl: `${JACKSON_URL}/api/oauth/token`,
-      redirectUrl: 'http://localhost:3000',
+      redirectUrl: 'http://localhost:3366',
       clientId: 'tenant=boxyhq.com&product=demo',
       clientSecret: 'dummy',
       onAccessTokenExpiry(refreshAccessToken) {
